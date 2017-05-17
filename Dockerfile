@@ -29,7 +29,6 @@ RUN \
 	php7-json  \
 	php7-mbstring \
 	php7-pear \
-	rtorrent \
 	screen \
 	tar \
 	unrar \
@@ -77,13 +76,20 @@ RUN \
  curl -o \
  /tmp/mediainfo.tar.gz -L \
 	"http://mediaarea.net/download/binary/mediainfo/${MEDIAINF_VER}/MediaInfo_CLI_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
+ curl -o \
+ /tmp/rtorrent.tar.gz -L \
+	"https://github.com/rakshasa/rtorrent/archive/0.9.4.tar.gz" && \
+	
  mkdir -p \
 	/tmp/libmediainfo \
+	/tmp/rtorrent \
 	/tmp/mediainfo && \
  tar xf /tmp/libmediainfo.tar.gz -C \
 	/tmp/libmediainfo --strip-components=1 && \
  tar xf /tmp/mediainfo.tar.gz -C \
 	/tmp/mediainfo --strip-components=1 && \
+ tar xf /tmp/rtorrent.tar.gz -C \
+	/tmp/rtorrent --strip-components=1 && \	
 
  cd /tmp/libmediainfo && \
 	./SO_Compile.sh && \
