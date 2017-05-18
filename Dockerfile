@@ -14,7 +14,7 @@ COPY patches/ /defaults/patches/
 
 # install runtime packages
 RUN \
-echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories \
+echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories && \
  apk add --no-cache \
 	ca-certificates \
 	curl \
