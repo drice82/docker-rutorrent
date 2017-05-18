@@ -79,18 +79,24 @@ RUN \
  curl -o \
  /tmp/rtorrent.tar.gz -L \
 	"https://github.com/rakshasa/rtorrent/archive/0.9.4.tar.gz" && \
+ curl -o \
+ /tmp/libtorrent.tar.gz -L \
+	"https://github.com/rakshasa/libtorrent/archive/0.13.4.tar.gz" && \
 	
  mkdir -p \
 	/tmp/libmediainfo \
 	/tmp/rtorrent \
+	/tmp/libtorrent \
 	/tmp/mediainfo && \
  tar xf /tmp/libmediainfo.tar.gz -C \
 	/tmp/libmediainfo --strip-components=1 && \
  tar xf /tmp/mediainfo.tar.gz -C \
 	/tmp/mediainfo --strip-components=1 && \
+ tar xf /tmp/libtorrent.tar.gz -C \
+	/tmp/libtorrent --strip-components=1 && \	
  tar xf /tmp/rtorrent.tar.gz -C \
 	/tmp/rtorrent --strip-components=1 && \	
-
+	
  cd /tmp/libmediainfo && \
 	./SO_Compile.sh && \
  cd /tmp/libmediainfo/ZenLib/Project/GNU/Library && \
@@ -100,6 +106,14 @@ RUN \
  cd /tmp/mediainfo && \
 	./CLI_Compile.sh && \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
+	make install && \
+ cd /tmp/libtorrent && \
+	./autogen.sh && \
+	./configure && \
+	make install && \
+ cd /tmp/rtorrent && \
+	./autogen.sh && \
+	./configure && \
 	make install && \
 
 # cleanup
