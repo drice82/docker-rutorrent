@@ -30,6 +30,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	php7-json  \
 	php7-mbstring \
 	php7-pear \
+	php7-mysqli \
 	rtorrent==0.9.4-r1 \
 	screen \
 	tar \
