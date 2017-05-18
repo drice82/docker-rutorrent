@@ -9,11 +9,12 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 # package version
 ARG MEDIAINF_VER="0.7.94"
 
-# copy patches
+# copy patches
 COPY patches/ /defaults/patches/
 
-# install runtime packages
+# install runtime packages
 RUN \
+echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories \
  apk add --no-cache \
 	ca-certificates \
 	curl \
@@ -29,6 +30,7 @@ RUN \
 	php7-json  \
 	php7-mbstring \
 	php7-pear \
+	rtorrent==0.9.4-r1 \
 	screen \
 	tar \
 	unrar \
@@ -65,7 +67,7 @@ RUN \
  rm -rf \
 	/defaults/rutorrent-conf/users && \
 
-# patch snoopy.inc for rss fix
+# patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
  patch < /defaults/patches/snoopy.patch && \
 
@@ -76,27 +78,14 @@ RUN \
  curl -o \
  /tmp/mediainfo.tar.gz -L \
 	"http://mediaarea.net/download/binary/mediainfo/${MEDIAINF_VER}/MediaInfo_CLI_${MEDIAINF_VER}_GNU_FromSource.tar.gz" && \
- curl -o \
- /tmp/rtorrent.tar.gz -L \
-	"https://github.com/rakshasa/rtorrent/archive/0.9.4.tar.gz" && \
- curl -o \
- /tmp/libtorrent.tar.gz -L \
-	"https://github.com/rakshasa/libtorrent/archive/0.13.4.tar.gz" && \
-	
  mkdir -p \
 	/tmp/libmediainfo \
-	/tmp/rtorrent \
-	/tmp/libtorrent \
 	/tmp/mediainfo && \
  tar xf /tmp/libmediainfo.tar.gz -C \
 	/tmp/libmediainfo --strip-components=1 && \
  tar xf /tmp/mediainfo.tar.gz -C \
 	/tmp/mediainfo --strip-components=1 && \
- tar xf /tmp/libtorrent.tar.gz -C \
-	/tmp/libtorrent --strip-components=1 && \	
- tar xf /tmp/rtorrent.tar.gz -C \
-	/tmp/rtorrent --strip-components=1 && \	
-	
+
  cd /tmp/libmediainfo && \
 	./SO_Compile.sh && \
  cd /tmp/libmediainfo/ZenLib/Project/GNU/Library && \
@@ -106,14 +95,6 @@ RUN \
  cd /tmp/mediainfo && \
 	./CLI_Compile.sh && \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
-	make install && \
- cd /tmp/libtorrent && \
-	./autogen.sh && \
-	./configure && \
-	make install && \
- cd /tmp/rtorrent && \
-	./autogen.sh && \
-	./configure && \
 	make install && \
 
 # cleanup
@@ -126,9 +107,9 @@ RUN \
 # fix logrotate
  sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf
 
-# add local files
+# add local files
 COPY root/ /
 
-# ports and volumes
+# ports and volumes
 EXPOSE 80
 VOLUME /config /downloads
