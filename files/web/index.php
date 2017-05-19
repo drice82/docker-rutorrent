@@ -59,7 +59,7 @@ $mysqli->close();
 <img src="./explorer.png">
 <div>
 <h2>File explorer</h2>
-<p><a href="./Downloads/">浏览文件</a></p>
+<p><a href="./downloads/">浏览文件</a></p>
 </div>
 </section>
 
