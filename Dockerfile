@@ -98,6 +98,21 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
 	make install && \
 
+# install h5ai
+cd /var/www/localhost && \
+	wget https://release.larsjung.de/h5ai/h5ai-0.29.0.zip && \
+	unzip h5ai-0.29.0.zip && \
+	rm h5ai-0.29.0.zip && \
+	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/index.php && \
+	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/css && \
+	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/style.css && \
+	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/explorer.png && \
+	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/recharge.png && \
+	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/utorrent.png && \
+	
+ln -sv /downloads /var/www/localhost && \
+
+
 # cleanup
  apk del --purge \
 	build-dependencies && \
@@ -107,9 +122,6 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 
 # fix logrotate
  sed -i "s#/var/log/messages {}.*# #g" /etc/logrotate.conf
- 
-#install H5ai
-
 
 # add local files
 COPY root/ /
