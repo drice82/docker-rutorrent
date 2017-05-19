@@ -103,12 +103,12 @@ cd /var/www/localhost && \
 	wget https://release.larsjung.de/h5ai/h5ai-0.29.0.zip && \
 	unzip h5ai-0.29.0.zip && \
 	rm h5ai-0.29.0.zip && \
-	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/index.php && \
-	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/css && \
-	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/style.css && \
-	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/explorer.png && \
-	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/recharge.png && \
-	wget https://github.com/drice82/Rtorrent-Auto-Install/raw/master/web/utorrent.png && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/index.php && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/css && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/style.css && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/explorer.png && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/recharge.png && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/utorrent.png && \
 	
 ln -sv /downloads /var/www/localhost && \
 
