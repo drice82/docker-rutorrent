@@ -1,5 +1,5 @@
 <?php
-include '/config/inc.php';
+include '/config/web/inc.php';
 ?>
 <?php
 $mysqli = new mysqli("$sqlhost", "$sqluser", "$sqlpwd", "$sqldb");
