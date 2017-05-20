@@ -1,9 +1,5 @@
 <?php
-$sqlhost='localhost';
-$sqluser='root';
-$sqlpwd='';
-$sqldb='';
-$username='10001';
+include '/config/web/inc.php';
 ?>
 
 <?php
