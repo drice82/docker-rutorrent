@@ -101,8 +101,13 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
 	make install && \
 
+# install filemanager
+cd /usr/share/webapps/rutorrent/plugins && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
+	tar xzf filemanager.tar.gz && \
+
 # install h5ai
-cd /usr/share/webapps && \
+cd /var/www/localhost && \
 	wget https://release.larsjung.de/h5ai/h5ai-0.29.0.zip && \
 	unzip h5ai-0.29.0.zip && \
 	rm h5ai-0.29.0.zip && \
@@ -114,11 +119,6 @@ cd /usr/share/webapps && \
 	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/utorrent.png && \
 	
 ln -sv /downloads /var/www/localhost && \
-
-# install filemanager
-cd /usr/share/webapps/rutorrent/plugins && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
-	tar xzf filemanager.tar.gz && \
 
 # cleanup
  apk del --purge \
