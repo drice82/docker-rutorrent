@@ -115,6 +115,10 @@ cd /var/www/localhost && \
 	
 ln -sv /downloads /var/www/localhost && \
 
+# install filemanager
+cd /var/www/localhost/rutorrent/plugins && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
+	tar xzf filemanager.tar.gz && \
 
 # cleanup
  apk del --purge \
