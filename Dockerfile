@@ -102,7 +102,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	make install && \
 
 # install h5ai
-cd /var/www/localhost && \
+cd /usr/share/webapps && \
 	wget https://release.larsjung.de/h5ai/h5ai-0.29.0.zip && \
 	unzip h5ai-0.29.0.zip && \
 	rm h5ai-0.29.0.zip && \
@@ -116,7 +116,7 @@ cd /var/www/localhost && \
 ln -sv /downloads /var/www/localhost && \
 
 # install filemanager
-cd /var/www/localhost/rutorrent/plugins && \
+cd /usr/share/webapps/rutorrent/plugins && \
 	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
 	tar xzf filemanager.tar.gz && \
 
