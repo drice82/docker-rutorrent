@@ -39,6 +39,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	unrar \
 	unzip \
 	wget \
+	findutils \
 	zip && \
  ln -sf /usr/bin/php7 /usr/bin/php && \
 # install build packages
