@@ -14,9 +14,7 @@ COPY patches/ /defaults/patches/
 
 # install runtime packages
 RUN \
-curl -o \
- /etc/apk/repositories -L \
-	"https://github.com/drice82/docker-rutorrent/raw/master/files/repositories" && \
+ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories && \
  apk add --no-cache \
 	ca-certificates \
 	curl \
@@ -82,14 +80,6 @@ curl -o \
 tar xf \
 /tmp/filemanager.tar.gz -L \
 	/usr/share/webapps/rutorrent/plugins --strip-components=1 && \
-
-# install h5ai
- curl -o \
- /tmp/ -L \
-	"https://release.larsjung.de/h5ai/h5ai-0.29.0.zip" && \
-unzip \
-/tmp/h5ai-0.29.0.zip && \
-mv /tmp/_h5ai /usr/share/webapps && \
 
 # patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
