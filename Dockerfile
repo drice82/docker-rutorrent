@@ -112,6 +112,12 @@ cd /usr/share/webapps/rutorrent/plugins && \
 	
 ln -sv /downloads /var/www/localhost && \
 
+#install h5ai
+ cd /var/www/localhost && \
+ wget --no-check-certificate https://github.com/drice82/docker-rutorrent/raw/master/files/h5ai-0.29.0.zip && \
+ unzip h5ai-0.29.0.zip && \
+ rm h5ai-0.29.0.zip && \
+
 # cleanup
  apk del --purge \
 	build-dependencies && \
@@ -125,9 +131,6 @@ ln -sv /downloads /var/www/localhost && \
 # add local files
 COPY root/ /
 COPY web/ /var/www/localhost
-RUN \
- cd /var/www/localhost && \
- unzip h5ai-0.29.0.zip && \
  
 # ports and volumes
 EXPOSE 80
