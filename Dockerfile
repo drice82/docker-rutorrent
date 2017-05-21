@@ -126,7 +126,7 @@ ln -sv /downloads /var/www/localhost && \
 # add local files
 COPY root/ /
 COPY web/ /var/www/localhost
-RUN /
+RUN \
  cd /var/www/localhost && \
  unzip h5ai-0.29.0.zip \
  
