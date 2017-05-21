@@ -42,6 +42,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	findutils \
 	zip && \
  ln -sf /usr/bin/php7 /usr/bin/php && \
+ 
 # install build packages
  apk add --no-cache --virtual=build-dependencies \
 	autoconf \
@@ -70,6 +71,22 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	/defaults/rutorrent-conf/ && \
  rm -rf \
 	/defaults/rutorrent-conf/users && \
+	
+# install filemanager
+ curl -o \
+ /tmp/filemanager.tar.gz -L \
+	"https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz" && \
+tar xf \
+/tmp/filemanager.tar.gz -L \
+	/usr/share/webapps/rutorrent/plugins --strip-components=1 && \
+
+# install h5ai
+ curl -o \
+ /tmp/ -L \
+	"https://release.larsjung.de/h5ai/h5ai-0.29.0.zip" && \
+unzip \
+/tmp/h5ai-0.29.0.zip && \
+mv /tmp/_h5ai /usr/share/webapps && \
 
 # patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
@@ -100,23 +117,6 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	./CLI_Compile.sh && \
  cd /tmp/mediainfo/MediaInfo/Project/GNU/CLI && \
 	make install && \
-
-# install filemanager
-cd /usr/share/webapps/rutorrent/plugins && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
-	tar xzf filemanager.tar.gz && \
-
-# install h5ai
-cd /var/www/localhost && \
-	wget https://release.larsjung.de/h5ai/h5ai-0.29.0.zip && \
-	unzip h5ai-0.29.0.zip && \
-	rm h5ai-0.29.0.zip && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/index.php && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/css && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/style.css && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/explorer.png && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/recharge.png && \
-	wget https://github.com/drice82/docker-rutorrent/raw/master/files/web/utorrent.png && \
 	
 ln -sv /downloads /var/www/localhost && \
 
@@ -132,7 +132,7 @@ ln -sv /downloads /var/www/localhost && \
 
 # add local files
 COPY root/ /
-
+COPY web/ /var/www/localhost
 # ports and volumes
 EXPOSE 80
 VOLUME /config /downloads
