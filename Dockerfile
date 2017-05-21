@@ -14,7 +14,9 @@ COPY patches/ /defaults/patches/
 
 # install runtime packages
 RUN \
-echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories && \
+curl -o \
+ /etc/apk/repositories -L \
+	"https://github.com/drice82/docker-rutorrent/raw/master/files/repositories" && \
  apk add --no-cache \
 	ca-certificates \
 	curl \
@@ -41,6 +43,7 @@ echo "http://dl-cdn.alpinelinux.org/alpine/v3.2/main" >>/etc/apk/repositories &&
 	wget \
 	findutils \
 	zip && \
+	
  ln -sf /usr/bin/php7 /usr/bin/php && \
  
 # install build packages
