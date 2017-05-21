@@ -44,7 +44,7 @@ except:
     oldpw='nopassword'
 #check password    
 if passwd!=oldpw:
-    with htpasswd.Basic("/var/www/html/rutorrent/.htpasswd") as userdb:
+    with htpasswd.Basic("/home/ptuser/config/web/.htpasswd") as userdb:
         try:
             userdb.change_password(username, passwd)
         except htpasswd.basic.UserNotExists, e:
@@ -55,12 +55,14 @@ if passwd!=oldpw:
 
 #check enable
 if enable == 0:
-    os.system("systemctl stop rtorrent")
-    os.system("rm /home/ptuser/.rtorrent-session/*")
-    os.system("rm -rf /home/ptuser/Downloads/*")
+    os.system("docker stop lazypt")
+    os.system("rm /home/ptuser/config/rtorrent/rtorrent-sess/*")
+    os.system("rm -rf /home/ptuser/downloads/incoming/*")
+    os.system("rm -rf /home/ptuser/downloads/completed/*")
+    os.system("rm -rf /home/ptuser/downloads/watched/*")
     print "Stop service"
 else:
-    os.system("systemctl start rtorrent")
+    os.system("docker start lazypt")
     print "start service"
 
 #finished
