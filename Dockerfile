@@ -73,13 +73,12 @@ RUN \
  rm -rf \
 	/defaults/rutorrent-conf/users && \
 	
+
 # install filemanager
- curl -o \
- /tmp/filemanager.tar.gz -L \
-	"https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz" && \
-tar xf \
-/tmp/filemanager.tar.gz -L \
-	/usr/share/webapps/rutorrent/plugins --strip-components=1 && \
+cd /usr/share/webapps/rutorrent/plugins && \
+	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
+	tar xzf filemanager.tar.gz && \
+	rm filemanager.tar.gz && \
 
 # patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
