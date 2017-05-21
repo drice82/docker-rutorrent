@@ -127,7 +127,7 @@ COPY root/ /
 COPY web/ /var/www/localhost
 RUN \
  cd /var/www/localhost && \
- unzip h5ai-0.29.0.zip \
+ unzip h5ai-0.29.0.zip && \
  
 # ports and volumes
 EXPOSE 80
