@@ -47,7 +47,9 @@ $mysqli->close();
 <h2>RuTorrent</h2>
     <p>SeedBox IP: <?php echo $email; ?></p>
   <?php
-    echo "剩余时间：".round(($expire_time-time())/86400,2)."天";
+    if (($expire_time-time())>0){$remain_time=round(($expire_time-time())/86400,2);}
+    else {$remain_time=0;}
+    echo "剩余时间：".$remain_time."天";
     echo "<br />";
     if (($expire_time-time())<604800) {echo '<font color="red">请及时续费！到期后盒子将被自动回收并清除数据！</font>';}
   ?>
