@@ -79,6 +79,7 @@ $mysqli->close();
 <input type="hidden" name="WIDbody" value="seedbox"/>
 <button type="submit" value="Submit">续费30天</button>
 </form>
+<p>请在电脑端续费</p>
 
 </div>
 </section>
