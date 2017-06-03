@@ -76,7 +76,9 @@ $mysqli->close();
 <h2>Recharge</h2>
 
 <?php
-  echo "到期日: ".date("Y-m-d H:i:s",$expire_time);
+    if (($expire_time-time())>0){$exp_date=date("Y-m-d H:i:s",$expire_time);}
+    else {$exp_date="过期";}
+  echo "到期日: ".$exp_date;
   echo "<br />";
 ?>
 
