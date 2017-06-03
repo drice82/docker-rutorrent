@@ -48,6 +48,10 @@ $mysqli->close();
     <p>SeedBox IP: <?php echo $email; ?>
     <p><a href="./rutorrent/">PT下载工具</a></p>
     <p><a href="http://my.lazypt.net/" target="_blank">修改密码</a></p>
+    <p>注意事项：</p>
+    <p>1.盒子在校验文件时可能出现连接困难，请稍后重试；</p>
+    <p>2.请勿一次添加过多新种，建议一次添加5个种子；</p>
+    <p>3.请确保有足够的磁盘空间，建议留有5%的空间。</p>
 </div>
 </section>
 
@@ -86,7 +90,7 @@ $mysqli->close();
 </main>
 
 <footer>
-<p>©2016 - 2017 <br> <a href="http://www.lazypt.net/">雷击霹雳</a></p>
+<p>©2016 - 2017 <br> <a href="http://www.lazypt.net/">雷击霹雳</a>|交流QQ群：548856096</p>
 </footer>
 </body>
 </html>
