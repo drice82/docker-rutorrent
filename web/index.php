@@ -68,6 +68,7 @@ $mysqli->close();
   echo "到期日: ".date("Y-m-d H:i:s",$expire_time);
   echo "<br />";
   echo "剩余时间：".round(($expire_time-time())/86400,2)."天";
+  echo "<br />";
   if (($expire_time-time())<604800) {echo '<font color="red">请及时续费！到期后盒子将被自动回收并清除数据！</font>';}
 ?>
 
