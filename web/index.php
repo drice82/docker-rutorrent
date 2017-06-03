@@ -65,8 +65,9 @@ $mysqli->close();
 <h2>Recharge</h2>
 
 <?php
-  echo "到期日:";
-  echo date("Y-m-d H:i:s",$expire_time);
+  echo "到期日: ".date("Y-m-d H:i:s",$expire_time);
+  echo "<br />";
+  echo "剩余时间：".$expire_time-time()/86400;
   if (($expire_time-time())<604800) {echo "  请及时续费";}
 ?>
 
