@@ -47,7 +47,7 @@ $mysqli->close();
 <h2>RuTorrent</h2>
     <p>SeedBox IP: <?php echo $email; ?>
     <p><a href="./rutorrent/">PT下载工具</a></p>
-    <p><a href="http://pt.lazypt.co/" target="_blank">修改密码</a></p>
+    <p><a href="http://my.lazypt.net/" target="_blank">修改密码</a></p>
 </div>
 </section>
 
