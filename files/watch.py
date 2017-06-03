@@ -56,7 +56,7 @@ if passwd!=oldpw:
 #check enable
 if enable == 0:
     os.system("docker stop lazypt")
-    os.system("rm /home/ptuser/config/rtorrent/rtorrent-sess/*")
+    os.system("rm /home/ptuser/config/rtorrent/rtorrent_sess/*")
     os.system("rm -rf /home/ptuser/downloads/incoming/*")
     os.system("rm -rf /home/ptuser/downloads/completed/*")
     os.system("rm -rf /home/ptuser/downloads/watched/*")
