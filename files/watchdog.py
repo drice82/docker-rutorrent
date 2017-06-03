@@ -19,7 +19,7 @@ try:
         enable = row[1]
         expire_time = row[2]
         if (expire_time < now and enable !=0):
-            sql = "UPDATE members SET enable=0, password='%s' WHERE username='%s'" %(randpwd, username)
+            sql = "UPDATE members SET enable=0, password='%s' WHERE username='%s'" %(''.join([random.choice(chars) for i in range(8)]), username)
             try:
                 cursor.execute(sql)
                 db.commit()
