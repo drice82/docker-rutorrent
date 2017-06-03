@@ -46,6 +46,11 @@ $mysqli->close();
 <div>
 <h2>RuTorrent</h2>
     <p>SeedBox IP: <?php echo $email; ?>
+  <?php
+    echo "剩余时间：".round(($expire_time-time())/86400,2)."天";
+    echo "<br />";
+    if (($expire_time-time())<604800) {echo '<font color="red">请及时续费！到期后盒子将被自动回收并清除数据！</font>';}
+  ?>
     <p><a href="./rutorrent/">PT下载工具</a></p>
     <p><a href="http://my.lazypt.net/" target="_blank">修改密码</a></p>
     <p>注意事项：</p>
