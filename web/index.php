@@ -45,7 +45,7 @@ $mysqli->close();
 <img src="./utorrent.png">
 <div>
 <h2>RuTorrent</h2>
-    <p>SeedBox IP: <?php echo $email; ?>
+    <p>SeedBox IP: <?php echo $email; ?></p>
   <?php
     echo "剩余时间：".round(($expire_time-time())/86400,2)."天";
     echo "<br />";
