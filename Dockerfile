@@ -79,6 +79,8 @@ cd /usr/share/webapps/rutorrent/plugins && \
 	wget https://github.com/drice82/docker-rutorrent/raw/master/files/filemanager.tar.gz && \
 	tar xzf filemanager.tar.gz && \
 	rm filemanager.tar.gz && \
+# del plugins
+rm -rf /var/www/localhost/rutorrent/plugins/history && \
 
 # patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
