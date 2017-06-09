@@ -80,7 +80,7 @@ cd /usr/share/webapps/rutorrent/plugins && \
 	tar xzf filemanager.tar.gz && \
 	rm filemanager.tar.gz && \
 # del plugins
-rm -rf /var/www/localhost/rutorrent/plugins/history && \
+rm -rf /usr/share/webapps/rutorrent/plugins/history && \
 
 # patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
