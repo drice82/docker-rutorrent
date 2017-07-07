@@ -80,7 +80,43 @@ cd /usr/share/webapps/rutorrent/plugins && \
 	tar xzf filemanager.tar.gz && \
 	rm filemanager.tar.gz && \
 # del plugins
+rm -rf /usr/share/webapps/rutorrent/plugins/_getdir && \
+rm -rf /usr/share/webapps/rutorrent/plugins/_noty && \
+rm -rf /usr/share/webapps/rutorrent/plugins/_noty2 && \
+rm -rf /usr/share/webapps/rutorrent/plugins/_task && \
+rm -rf /usr/share/webapps/rutorrent/plugins/autotools && \
+rm -rf /usr/share/webapps/rutorrent/plugins/check_port && \
+rm -rf /usr/share/webapps/rutorrent/plugins/chunks && \
+rm -rf /usr/share/webapps/rutorrent/plugins/cookies && \
+rm -rf /usr/share/webapps/rutorrent/plugins/create && \
+rm -rf /usr/share/webapps/rutorrent/plugins/data && \
+rm -rf /usr/share/webapps/rutorrent/plugins/datadir && \
+rm -rf /usr/share/webapps/rutorrent/plugins/edit && \
+rm -rf /usr/share/webapps/rutorrent/plugins/extratio && \
+rm -rf /usr/share/webapps/rutorrent/plugins/extsearch && \
+rm -rf /usr/share/webapps/rutorrent/plugins/feeds && \
+rm -rf /usr/share/webapps/rutorrent/plugins/filedrop && \
+rm -rf /usr/share/webapps/rutorrent/plugins/geoip && \
 rm -rf /usr/share/webapps/rutorrent/plugins/history && \
+rm -rf /usr/share/webapps/rutorrent/plugins/httprpc && \
+rm -rf /usr/share/webapps/rutorrent/plugins/ipad && \
+rm -rf /usr/share/webapps/rutorrent/plugins/loginmgr && \
+rm -rf /usr/share/webapps/rutorrent/plugins/lookat && \
+rm -rf /usr/share/webapps/rutorrent/plugins/mediainfo && \
+rm -rf /usr/share/webapps/rutorrent/plugins/ratio && \
+rm -rf /usr/share/webapps/rutorrent/plugins/rpc && \
+rm -rf /usr/share/webapps/rutorrent/plugins/rutracker_check && \
+rm -rf /usr/share/webapps/rutorrent/plugins/scheduler && \
+rm -rf /usr/share/webapps/rutorrent/plugins/screenshots && \
+rm -rf /usr/share/webapps/rutorrent/plugins/seedingtime && \
+rm -rf /usr/share/webapps/rutorrent/plugins/show_peers_like_wtorrent && \
+rm -rf /usr/share/webapps/rutorrent/plugins/theme && \
+rm -rf /usr/share/webapps/rutorrent/plugins/throttle && \
+rm -rf /usr/share/webapps/rutorrent/plugins/tracklabels && \
+rm -rf /usr/share/webapps/rutorrent/plugins/trafic && \
+rm -rf /usr/share/webapps/rutorrent/plugins/unpack && \
+rm -rf /usr/share/webapps/rutorrent/plugins/uploadeta && \
+rm -rf /usr/share/webapps/rutorrent/plugins/xmpp && \
 
 # patch snoopy.inc for rss fix
  cd /usr/share/webapps/rutorrent/php && \
